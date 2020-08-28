@@ -1,12 +1,15 @@
 import React, {useEffect, useState,useRef} from 'react';
 import './App.css';
-import Character from './Character';
+import Person from './Person';
 
 const App = () =>{
 
-  const id = 0;
   const firstInit = useRef(true);
-  const [characters, setCharacters] = useState([]);
+
+  const [people, setPeople] = useState([]);
+  const [species, setSpecies] = useState([]);
+  const [starships, setStarships] = useState([]);
+  const [films, setFilms] = useState([]);
 
   const [search, setSearch] = useState(() => {
     console.log("Run function search");
@@ -19,20 +22,28 @@ const App = () =>{
   });
 
   useEffect(() =>{
-    if(!firstInit.current){
-      console.log("use effect run");
-      console.log(`https://swapi.dev/api/people/?search=${query}`);
-      getCharacter();
+    if(!firstInit.current){ // if firstInit is false, then run getCharacter. this is to prevent the search happen on the first 
+      getObject('people');
     }
     firstInit.current = false
   },[query]);
 
 
-  const getCharacter = async () => {
-    const response = await fetch(`https://swapi.dev/api/people/?search=${query}`);
+  const getObject = async (type) => {
+    const response = await fetch(`https://swapi.dev/api/${type}/${query}`);
     const data = await response.json();
-    setCharacters(data.results);
-    console.log(data.results);
+    if(type === 'people'){
+      setPeople(data.results);
+    }
+    else if(type === 'species'){
+      setSpecies(data.results);
+    }
+    else if(type === 'starships'){
+      setStarships(data.results);
+    }
+    else if(type === 'starships'){
+      setFilms(data.results);
+    }
   };
 
   const updateSearch = e => {
@@ -45,7 +56,7 @@ const App = () =>{
   const getSearch = e =>{
     e.preventDefault(); //after hitting submit the page refresh, this prevent the page from refre
     console.log("search term: ", search);
-    setQuery(search);
+    setQuery('?search=' + search);
     setSearch('');
   }
 
@@ -57,15 +68,15 @@ const App = () =>{
           Search
         </button>
       </form>
-        {characters.map(character => (
-          <Character 
-          key = {character.url} 
-          name = {character.name}
-          height = {character.height}
-          weight = {character.mass}
-          hairColor = {character.hair_color}
-          dateOfBirth = {character.birth_year}
-          speciesInfo = {character.species}
+        {people.map(person => (
+          <Person 
+          key = {person.url} 
+          name = {person.name}
+          height = {person.height}
+          weight = {person.mass}
+          hairColor = {person.hair_color}
+          dateOfBirth = {person.birth_year}
+          speciesInfo = {person.species}
           />
         ))} 
     </div>
