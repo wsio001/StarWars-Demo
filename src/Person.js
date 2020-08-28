@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Character = ({name, height, weight, hairColor, dateOfBirth, speciesInfo}) => {
+const Person = ({name, height, weight, hairColor, dateOfBirth, speciesInfo}) => {
     return(
         <div>
             <h1>About Me</h1> 
@@ -14,4 +14,4 @@ const Character = ({name, height, weight, hairColor, dateOfBirth, speciesInfo}) 
     )
 }
 
-export default Character;
+export default Person;
