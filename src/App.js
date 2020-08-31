@@ -50,6 +50,10 @@ const App = () =>{
       setMsg("Sorry, we cannot find what you are looking for. May the force still be with you!")
       return;
     }
+    if(data.count > 1){
+      setMsg("Sorry, you might want to narrow down your search")
+      return;
+    }
 
     switch(type){
       case 'people':
