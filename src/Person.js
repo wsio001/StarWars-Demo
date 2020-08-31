@@ -1,15 +1,14 @@
 import React from 'react';
+import "./Info.css"
 
-const Person = ({name, height, weight, hairColor, dateOfBirth, speciesInfo}) => {
+const Person = ({name, height, weight, hairColor, dateOfBirth}) => {
     return(
-        <div>
-            <h1>About Me</h1> 
-            <p>{name}</p>
-            <p>{height}</p>
-            <p>{weight}</p>
-            <p>{hairColor}</p>
-            <p>{dateOfBirth}</p>
-            <p>{speciesInfo}</p>
+        <div className = "Info">
+            <p>Name: {name}</p>
+            <p>Height: {height}</p>
+            <p>Weight: {weight}</p>
+            <p>Hair Color: {hairColor}</p>
+            <p>Date of Birth: {dateOfBirth}</p>
         </div>
     )
 }
