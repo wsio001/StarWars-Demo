@@ -5,11 +5,11 @@
 .boxModel{
   width: 300px;
   padding: 50px;
-  border: 5px solid #f9d71c;
+  border: 2px solid #f9d71c;
   margin: auto;
   border-radius: 25px;
-  
 }
+
 .search-bar{
   padding: 10px 10px;
   box-sizing: border-box;
@@ -47,10 +47,13 @@
 .readMore{
   color:#f9d71c;
   text-decoration: underline;
+  text-align: left;
 }
 
 .Title{
   color:#f9d71c;
+  font-size:40px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 .Info{
