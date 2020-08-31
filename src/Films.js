@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 const Films = ({title}) => {
     return(
-        <div>
+        <div className = "Info">
             <p>{title}</p>
         </div>
     )
