@@ -4,7 +4,7 @@ import "./Info.css"
 const Person = ({name, height, weight, hairColor, dateOfBirth}) => {
     return(
         <div className = "Info">
-            <p>Name: {name}</p>
+            <p style = {{fontSize:"25px"}}><b>Name: {name}</b></p>
             <p>Height: {height}</p>
             <p>Weight: {weight}</p>
             <p>Hair Color: {hairColor}</p>
