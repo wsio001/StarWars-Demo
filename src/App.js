@@ -29,6 +29,7 @@ const App = () =>{
     return '';
   });
 
+  //reset function each time someone hit the search
   const reset = () => {
     setShowSpButton(false);
     setShowShipButton(false);
@@ -69,7 +70,7 @@ const App = () =>{
         setSpecies(data);
         break;
       case 'starships':
-        setStarships(previous => [...previous,data ]);
+        setStarships(previous => [...previous,data ]); //using ...previous to keep the previous array instead of wiping it
         break;
       case 'films':
         setFilms(previous => [...previous,data ]);
@@ -78,16 +79,13 @@ const App = () =>{
   };
 
   const updateSearch = e => {
-
     const searchTerm = e.target.value;
     setSearch(searchTerm);
-    //console.log("evalue", searchTerm);
-    //console.log("search that i just typed in", search);
   }
   
 
   const getSearch = e =>{
-    e.preventDefault(); //after hitting submit the page refresh, this prevent the page from refre
+    e.preventDefault(); //after hitting submit the page refresh, this prevent the page from refreshing
     if (search === ''){
       setMsg("Sorry, you will need to enter a name");
       return;
@@ -122,14 +120,9 @@ const App = () =>{
   }
 
 
-  const showSpeciesSpace = showSpButton?'Show species':null;
+  const showSpeciesSpace = showSpButton?'Show species':null; //if button is true then show Text, if not, show null
   const showShipsSpace = showShipButton?'Show ships':null;
   const showFilmsSpace = showFilmButton?'Show Films':null;
-
-  const extraContent = <div>
-  <span>{starshipsQ}</span> <br/>
-  <span>{filmsQ}</span> <br/>
-  </div>
 
   return(
     <div className = "App">
